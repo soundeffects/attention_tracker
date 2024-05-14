@@ -1,0 +1,11 @@
+[package]
+name = "bevy_attention_tracker"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = "0.13"
+
+[dev-dependencies]
+bevy_third_person_camera = "0.1"
+smooth-bevy-cameras = "0.11"
