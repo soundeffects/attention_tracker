@@ -1,23 +1,17 @@
 use bevy::prelude::*;
 
-#[derive(Component)]
-pub struct Attent;
+pub mod observation;
+pub mod observer;
+pub mod visualizer;
 
-pub struct AttentionTracker;
-
-impl Plugin for AttentionTracker {
+pub struct AttentionTrackerPlugin;
+impl Plugin for AttentionTrackerPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(Startup, setup).add_systems(Update, attend);
+        app.add_systems(Startup, setup)
+            .add_systems(Update, observer::systems!());
     }
 }
 
 fn setup() {
-    info!("loaded!");
-}
-
-fn attend(mut commands: Commands, attent_query: Query<&Transform, With<Attent>>) {
-    for transform in attent_query.iter() {
-        //commands.spawn()
-        todo!();
-    }
+    info!("AttentionTrackerPlugin loaded!");
 }
